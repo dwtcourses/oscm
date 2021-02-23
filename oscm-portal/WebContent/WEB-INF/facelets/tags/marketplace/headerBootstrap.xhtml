@@ -115,6 +115,10 @@
                   <p class="px-4 py-sm-2 mb-1">
                     #{msg['marketplace.logging']} <strong><br>#{user.userId}</br></strong>
                   </p>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="themeSwitch"/>
+                    <label class="custom-control-label" for="themeSwitch">Toggle this switch element</label>
+                  </div>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#{mpBaseUrl}/account/index.jsf">#{msg['navigation.myAccount']}</a>
                   <a class="dropdown-item" href="#{mpBaseUrl}/subscriptions/index.jsf">#{msg['navigation.subscriptions']}</a>
@@ -144,5 +148,38 @@
 
   <script type="text/javascript">
     AdmUtils.IE9PlaceHolderFix('#{servicePagingBean.searchPhrase}', 'inputSearch');
+
+    window.onload = function() {
+        const btn = document.querySelector("#themeSwitch");
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme == "dark") {
+          document.body.classList.toggle("dark-theme");
+        } else if (currentTheme == "light") {
+          document.body.classList.toggle("light-theme");
+        }
+
+        btn.addEventListener("click", function () {
+          if (prefersDarkScheme.matches) {
+            document.body.classList.toggle("light-theme");
+            var theme = document.body.classList.contains("light-theme")
+              ? "light"
+              : "dark";
+
+            $("[class*='-themed']").each((i,ele)=>{
+                $(ele).toggleClass('bg-themed bg-light')
+                $(ele).toggleClass('text-light')
+                $(ele).toggleClass('navbar-themed navbar-light')
+            });
+          } else {
+            document.body.classList.toggle("dark-theme");
+            var theme = document.body.classList.contains("dark-theme")
+              ? "dark"
+              : "light";
+          }
+
+          localStorage.setItem("theme", theme);
+        });
+    };
   </script>
 </ui:composition>
