@@ -142,7 +142,7 @@
 
       <ui:insert name="contentstitle"/>
 
-        <ui:insert name="contents"/>
+      <ui:insert name="contents"/>
 
     </div>
   </a4j:outputPanel>
@@ -157,27 +157,27 @@
 
   <link href="${bootstrapBrandBaseUrl}/customBootstrap/css/customFooter.min.css" rel="stylesheet" type="text/css"/>
 
-  <footer class="bootstrap_footer">
+  <footer class="bg-dark">
 
     <div class="container-fluid text-center py-3">
       <ul>
-        <li class="firstchild"><a id="imprintLink" href="#{imprintUrl}"
-                                  onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/imprint.jsf');return false;}"
-                                  target="_blank">
-          <h:outputText
-              value="#{msg['marketplace.imprint.title']}"/>
-        </a>
+        <li class="firstchild">
+          <a id="imprintLink" href="#{imprintUrl}" target="_blank" class="text-light"
+             onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/imprint.jsf');return false;}">
+            <h:outputText value="#{msg['marketplace.imprint.title']}"/>
+          </a>
         </li>
-        <li><a href="#{mpBaseUrl}/terms/terms.jsf"
-               onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/terms.jsf');return false;}">
-          <h:outputText value="#{msg['marketplace.terms.title']}"/>
-        </a>
+        <li>
+          <a href="#{mpBaseUrl}/terms/terms.jsf" class="text-light"
+             onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/terms.jsf');return false;}">
+            <h:outputText value="#{msg['marketplace.terms.title']}"/>
+          </a>
         </li>
-        <li><a id="privacyPolicyLink" href="#{mpBaseUrl}/terms/privacypolicy.jsf"
-               onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/privacypolicy.jsf');return false;}">
-          <h:outputText
-              value="#{msg['marketplace.privacypolicy.title']}"/>
-        </a>
+        <li>
+          <a id="privacyPolicyLink" href="#{mpBaseUrl}/terms/privacypolicy.jsf" class="text-light"
+             onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/privacypolicy.jsf');return false;}">
+            <h:outputText value="#{msg['marketplace.privacypolicy.title']}"/>
+          </a>
         </li>
       </ul>
     </div>
@@ -208,6 +208,9 @@
 
     AdmUtils.preventDefaultSubmitOnEnter();
     AdmUtils.sortSelect();
+
+
+
   </script>
 
   <h:outputText escape="false" value="#{trackingCodeCtrl.trackingCodeForCurrentMarketplace}"/>
