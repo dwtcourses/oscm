@@ -1,6 +1,6 @@
 $toggled_navigation_theme: if($enable-dark-navigation, "dark", "light");
 $toggled_theme: if($enable-dark-theme, "dark", "light");
-
+$contrast_theme: if($enable-dark-theme, "light", "dark");
  
 .navbar-themed  {
   @extend .bg-#{$toggled_navigation_theme};
@@ -13,6 +13,10 @@ $toggled_theme: if($enable-dark-theme, "dark", "light");
 
 .bg-themed {
   @extend .bg-#{$toggled_theme};
+}
+
+.text-themed {
+  @extend .text-#{$contrast_theme};
 }
 
 .border-themed {

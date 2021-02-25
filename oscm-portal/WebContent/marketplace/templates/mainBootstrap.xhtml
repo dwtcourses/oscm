@@ -157,24 +157,24 @@
 
   <link href="${bootstrapBrandBaseUrl}/customBootstrap/css/customFooter.min.css" rel="stylesheet" type="text/css"/>
 
-  <footer class="bg-dark">
+  <footer class="bg-themed">
 
-    <div class="container-fluid text-center py-3">
-      <ul>
-        <li class="firstchild">
-          <a id="imprintLink" href="#{imprintUrl}" target="_blank" class="text-light"
+    <div class="py-3">
+      <ul class="nav justify-content-center">
+        <li class="firstchild nav-item">
+          <a id="imprintLink" href="#{imprintUrl}" target="_blank" class="nav-link text-themed"
              onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/imprint.jsf');return false;}">
             <h:outputText value="#{msg['marketplace.imprint.title']}"/>
           </a>
         </li>
-        <li>
-          <a href="#{mpBaseUrl}/terms/terms.jsf" class="text-light"
+        <li class="nav-item">
+          <a href="#{mpBaseUrl}/terms/terms.jsf" class="nav-link text-themed"
              onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/terms.jsf');return false;}">
             <h:outputText value="#{msg['marketplace.terms.title']}"/>
           </a>
         </li>
-        <li>
-          <a id="privacyPolicyLink" href="#{mpBaseUrl}/terms/privacypolicy.jsf" class="text-light"
+        <li class="nav-item">
+          <a id="privacyPolicyLink" href="#{mpBaseUrl}/terms/privacypolicy.jsf" class="nav-link text-themed"
              onclick="if(#{isMplRestricted and empty userBean.loggedInUser}){showLoginPanel('/marketplace/terms/privacypolicy.jsf');return false;}">
             <h:outputText value="#{msg['marketplace.privacypolicy.title']}"/>
           </a>
