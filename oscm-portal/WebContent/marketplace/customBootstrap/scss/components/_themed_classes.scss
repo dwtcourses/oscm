@@ -1,7 +1,7 @@
 $toggled_navigation_theme: if($enable-dark-navigation, "dark", "light");
 $toggled_theme: if($enable-dark-theme, "dark", "light");
-$contrast_theme: if($enable-dark-theme, "light", "dark");
- 
+$contrast_theme: if($enable-dark-navigation, "light", "dark");
+
 .navbar-themed  {
   @extend .bg-#{$toggled_navigation_theme};
   @extend .navbar-#{$toggled_navigation_theme};
@@ -16,7 +16,7 @@ $contrast_theme: if($enable-dark-theme, "light", "dark");
 }
 
 .text-themed {
-  @extend .text-#{$contrast_theme};
+  @extend .text-#{toggled_navigation_theme};
 }
 
 .border-themed {
